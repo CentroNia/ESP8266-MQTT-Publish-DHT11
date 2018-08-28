@@ -11,30 +11,27 @@
 
 //#define DHTTYPE DHT22 // DHT 22 (AM2302), AM2321
 //#define DHTTYPE DHT21 // DHT 21 (AM2301)
-// Connect pin 1 (on the left) of the sensor to +5V
-// NOTE: If using a board with 3.3V logic like an Arduino Due connect pin 1
-// to 3.3V instead of 5V!
-// Connect pin 2 of the sensor to whatever your DHTPIN is
-// Connect pin 4 (on the right) of the sensor to GROUND
-// Connect a 10K resistor from pin 2 (data) to pin 1 (power) of the sensor
-// Initialize DHT sensor.
-// Note that older versions of this library took an optional third parameter to
-// tweak the timings for faster processors. This parameter is no longer needed
-// as the current DHT reading algorithm adjusts itself to work on faster procs.
 
+// 1- Update WiFi credentials
+// 2- Update MQTT Server IP and login information
+// 3- Update subscription topic
+// 4- Define ClientName
 
 DHT dht(DHTPIN, DHTTYPE);
 
+// WiFi credentials
 #define wifi_ssid "tituswifi"
 #define wifi_password "password"
 
-#define mqtt_server "192.168.0.104"
-//#define mqtt_user "user"
-//#define mqtt_password "password"
+// MQTT Server IP, and login information
+#define mqtt_server "10.10.10.10"
+#define mqtt_user "user"
+#define mqtt_password "password"
 
-#define humidity_topic "sensor/humidity"
-#define temperature_celsius_topic "sensor/temperature_celsius"
-#define temperature_fahrenheit_topic "sensor/temperature_fahrenheit"
+// Define MQTT subscription topic
+#define humidity_topic "cr/sensor/humidity"
+#define temperature_celsius_topic "cr/sensor/temperature_celsius"
+#define temperature_fahrenheit_topic "cr/sensor/temperature_fahrenheit"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -91,7 +88,11 @@ void reconnect() {
       clientName += macToStr(mac);
       clientName += "-";
       clientName += String(micros() & 0xff, 16);
-      Serial.print("Connecting to ");
+    
+        // Define client name based on hardcoded information
+       // clientName = "Client01";
+    
+    Serial.print("Connecting to ");
       Serial.print(mqtt_server);
       Serial.print(" as ");
       Serial.println(clientName);
