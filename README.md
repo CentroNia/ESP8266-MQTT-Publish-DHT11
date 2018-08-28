@@ -2,13 +2,13 @@
 Publish the temperature and humidity information
 
 
-1) Run the MQTT broker in raspberry pi (host : 192.168.0.104)
+1) Run the MQTT broker in a server (host : 10.10.10.10)
 
-2) Subscribe the humidity/temperature topic in raspberry pi board.
+2) Subscribe the humidity/temperature topic in MQTT broker.
 
 subscribe -t sensor/humidity
 
-3) Upload the .ino file into NodeMCU board (ESP8266)
+3) Upload the .ino file into ESP8266 board
 
 4) Connect DHT11 signal pin to D6 pin which is GPIO12, Vcc to 5V and GND to GND of raspberry pi board.
 
