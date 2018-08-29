@@ -1,8 +1,9 @@
 /* DHTServer - ESP8266 Webserver with a DHT sensor as an input
-
    Based on ESP8266Webserver, DHTexample, and BlinkWithoutDelay (thank you)
-
    Version 1.0  5/3/2014  Version 1.0   Mike Barela for Adafruit Industries
+
+Might be good to try this https://iflorian.com/esp8266-weather-station-part-1/
+
 */
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
@@ -68,8 +69,14 @@ void setup(void)
   });
 
   server.on("/humidity", [](){  // if you add this subdirectory to your webserver call, you get text below :)
-    gettemperature();           // read sensor
-    webString="Humidity: "+String((int)humidity)+"%";
+    // Option A
+     gettemperature();           // read sensor
+     webString="Humidity: "+String((int)humidity)+"%";
+
+     // Option B
+     //     humidity = dht.readHumidity();
+     //     temperature = dht.readTemperature();
+     // String webString = "Humiditiy " + String((int)humidity) + "%   Temperature: " + String((int)temperature) + " C";
     server.send(200, "text/plain", webString);               // send to someones browser when asked
   });
   
