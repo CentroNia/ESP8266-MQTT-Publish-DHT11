@@ -1,0 +1,18 @@
+Sensor Parts:
+  3.3v Power Supply:    $   5.99
+  ESP8266 + DHT11       $   2.61
+    Total per Sensor    $   8.60
+
+Other Parts:
+  USB Programmer:         $   8.99
+
+Sources:
+Power Supply: https://www.amazon.com/SMAKN%C3%82-Switching-Supply-Adapter-100-240/dp/B00OZDY950/ref=sr_1_1?ie=UTF8&qid=1535551652&sr=8-1&keywords=smakna+3.3v
+USB Adapter: https://www.amazon.com/ACROBOTIC-ESP8266-Programmer-Arduino-Raspberry/dp/B07FZBYGWW/ref=sr_1_12?s=electronics&ie=UTF8&qid=1535551759&sr=1-12&keywords=usb+esp-01
+ESP8266 + Temperature shield: https://www.aliexpress.com/item/ESP8266-ESP-01-ESP-01S-DHT11-Temperature-Humidity-Sensor-Module-esp8266-Wifi-NodeMCU-Smart-Home-IOT/32830817019.html?spm=2114.search0104.3.1.6fff4b8dxzaLSk&ws_ab_test=searchweb0_0,searchweb201602_4_10065_10068_5910015_10130_10547_10546_5890015_10548_5724715_315_10545_10696_531_10084_5724015_10083_5970015_10618_5724315_10307_5724215_5724115_10059_5860016_100031_5725015_10103_5725115_5980015_5724915_5990015,searchweb201603_56,ppcSwitch_5&algo_expid=c30c02a1-1377-4e6f-b572-329e1cd1ac08-0&algo_pvid=c30c02a1-1377-4e6f-b572-329e1cd1ac08&transAbTest=ae803_1&priceBeautifyAB=0
+
+Notes
+A circuit based 5v to 3.3v reductor can be used for $0.87 each and use a standard 5v USB wart vs the 3.3v Power supply.
+https://www.aliexpress.com/item/High-Quality-5PCS-5V-to-3-3V-For-DC-DC-Step-Down-Power-Supply-Buck-Module/32774098119.html?spm=2114.search0104.3.36.2c51dd39x328n5&ws_ab_test=searchweb0_0,searchweb201602_4_10065_10068_5910015_10130_10547_10546_5890015_10548_5724715_315_10545_10696_531_10084_5724015_10083_5970015_10618_5724315_10307_5724215_5724115_10059_5860016_100031_5725015_10103_5725115_5980015_5724915_5990015,searchweb201603_54,ppcSwitch_5&algo_expid=05de86a5-65fe-4fbc-a699-6090eec64693-5&algo_pvid=05de86a5-65fe-4fbc-a699-6090eec64693&transAbTest=ae803_1&priceBeautifyAB=0
+
+Seed Studio PCB: offers PCB boards that are specific to our needs. (ie: temperature plus other sensor in same design)
