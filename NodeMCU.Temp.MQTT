@@ -3,23 +3,24 @@
 #include <DHT.h>
 
 // Init Sensor
-#define DHTTYPE DHT11
+#define DHTTYPE DHT22
 #define DHTPIN  2
 DHT dht(DHTPIN, DHTTYPE, 11);
 
 // Init Wifi
-#define wifi_ssid "NETWORK_IT"
-#define wifi_password "NetworkPassword"
+#define wifi_ssid "SSID"
+#define wifi_password "WifiPassword"
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 
 // Init MQTT Server
-#define mqtt_server "mqtt.server.ip"
+#define mqtt_server "MQTT_server_IP"
 #define mqtt_user "sensor"
-#define mqtt_password "mqttpass"
-#define humidity_topic "cr/sensor/humidity/cr03"
-#define temperature_celsius_topic "cr/sensor/temperature/cr03C"
-#define temperature_fahrenheit_topic "cr/sensor/temperature/cr03"
+#define mqtt_password "password"
+#define humidity_topic "cr/sensor/humidity/cr04"
+#define temperature_celsius_topic "cr/sensor/temperature/cr04C"
+#define temperature_fahrenheit_topic "cr/sensor/temperature/cr04"
 
 
 // Run at startup
@@ -28,6 +29,7 @@ void setup(){
   dht.begin();
   setup_wifi();
   client.setServer(mqtt_server, 1883);
+  pinMode(LED_BUILTIN, OUTPUT);     // Initialize the LED_BUILTIN pin as an output
 }
 
 String macToStr(const uint8_t* mac)
@@ -48,6 +50,7 @@ void setup_wifi() {
   Serial.print("Connecting to ");
   Serial.println(wifi_ssid);
 
+  WiFi.mode(WIFI_STA);
   WiFi.begin(wifi_ssid, wifi_password);
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -120,7 +123,9 @@ void loop(){
       
       // Check if any reads failed and exit early (to try again).
       if (isnan(h) || isnan(t) || isnan(f)) {
-      Serial.println("Failed to read from DHT sensor!");
+      Serial.println("Strike 3 => Failed to read from DHT sensor!");
+      digitalWrite(LED_BUILTIN, LOW);   // Turn the LED on by making the voltage LOW
+      delay(2000);
       return;
       }
       
@@ -129,6 +134,7 @@ void loop(){
       // Compute heat index in Celsius (isFahreheit = false)
       float hic = dht.computeHeatIndex(t, h, false);
  
+      Serial.println("__");
       Serial.print("Temperature in Celsius:");
       Serial.println(String(t).c_str());
       client.publish(temperature_celsius_topic, String(t).c_str(), true);
@@ -141,5 +147,6 @@ void loop(){
       Serial.print("Humidity:");
       Serial.println(String(h).c_str());
       client.publish(humidity_topic, String(h).c_str(), true);
-
+      digitalWrite(LED_BUILTIN, HIGH);  // Turn the LED off by making the voltage HIGH
+      delay(2000);
 }
