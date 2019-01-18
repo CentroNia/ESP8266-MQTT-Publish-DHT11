@@ -1,0 +1,513 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 38.927169
+  longitude: -77.033253
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: UTC
+  # Customization file
+  customize: !include customize.yaml
+
+# Enable MQTT Broker
+mqtt:
+  broker: [mqtt_ip]
+  username: [username]
+  password: [password]
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+  - platform: darksky
+    api_key: f0a7e51855b355a5f2859396eab0fce4
+    units: us
+    update_interval: '00:20'
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - temperature
+      - temperature_min
+      - temperature_max
+      - humidity
+      - precip_probability
+      - precip_intensity
+      - precip_type
+      - wind_speed
+      - wind_bearing
+      - pressure
+
+
+# Add here all the ESP8266 Temperature Sensors:
+# Topics: Create topics that are detailed and can be subscribed and named
+#
+#     cr/sensor/temperature/device_ID
+#     up/sensor/temperature/device_ID
+#     and so on...
+#
+# ====== CR01 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr01"
+    name: "cr01F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr01C"
+    name: "cr01C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr01"
+    name: "cr01H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR01 -------
+
+# ====== CR02 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr02"
+    name: "cr02F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr02C"
+    name: "cr02C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr02"
+    name: "cr02H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR02 -------
+
+# ====== CR03 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr03"
+    name: "cr03F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr03C"
+    name: "cr03C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr03"
+    name: "cr03H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR03 -------
+
+# ====== CR04 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr04"
+    name: "cr04F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr04C"
+    name: "cr04C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr04"
+    name: "cr04H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR04 -------
+
+# ====== CR05 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr05"
+    name: "cr05F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr05C"
+    name: "cr05C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr05"
+    name: "cr05H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR05 -------
+
+# ====== CR06 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr06"
+    name: "cr06F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr06C"
+    name: "cr06C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr06"
+    name: "cr06H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR06 -------
+
+# ====== CR07 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr07"
+    name: "cr07F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr07C"
+    name: "cr07C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr07"
+    name: "cr07H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR07 -------
+
+# ====== CR08 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr08"
+    name: "cr08F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr08C"
+    name: "cr08C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr08"
+    name: "cr08H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR08 -------
+
+# ====== CR09 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr09"
+    name: "cr09F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr09C"
+    name: "cr09C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr09"
+    name: "cr09H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR09 -------
+
+# ====== CR10 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr10"
+    name: "cr10F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr10C"
+    name: "cr10C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr10"
+    name: "cr10H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR10 -------
+
+# ====== CR11 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr11"
+    name: "cr11F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr11C"
+    name: "cr11C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr11"
+    name: "cr11H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR11 -------
+
+# ====== CR12 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr12"
+    name: "cr12F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr12C"
+    name: "cr12C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr12"
+    name: "cr12H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR12 -------
+
+# ====== CR13 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr13"
+    name: "cr13F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr13C"
+    name: "cr13C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr13"
+    name: "cr13H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR13 -------
+
+# ====== CR14 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr14"
+    name: "cr14F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr14C"
+    name: "cr14C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr14"
+    name: "cr14H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR14 -------
+
+# ====== CR15 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr15"
+    name: "cr15F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr15C"
+    name: "cr15C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr15"
+    name: "cr15H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR15 -------
+
+# ====== CR16 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr16"
+    name: "cr16F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr16C"
+    name: "cr16C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr16"
+    name: "cr16H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR16 -------
+
+# ====== CR17 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr17"
+    name: "cr17F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr17C"
+    name: "cr17C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr17"
+    name: "cr17H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR17 -------
+
+# ====== CR18 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr18"
+    name: "cr18F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr18C"
+    name: "cr18C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr18"
+    name: "cr18H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR18 -------
+
+# ====== CR19 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr19"
+    name: "cr19F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr19C"
+    name: "cr19C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr19"
+    name: "cr19H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR19 -------
+
+# ====== CR20 ===========
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr20"
+    name: "cr20F"
+    unit_of_measurement: "F"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/temperature/cr20C"
+    name: "cr20C"
+    unit_of_measurement: "C"
+    expire_after: 30
+   
+  - platform: mqtt
+    state_topic: "cr/sensor/humidity/cr20"
+    name: "cr20H"
+    unit_of_measurement: "H%"
+    expire_after: 30
+# -----  End CR20 -------
+
+# --- Last Updated Sensors
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Enables floorplan (https://github.com/pkozul/ha-floorplan)
+#panel_custom:
+#  - name: floorplan
+#    sidebar_title: Floorplan
+#    sidebar_icon: mdi:home
+#    url_path: floorplan
+#    config: !include floorplan.yaml
+
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
